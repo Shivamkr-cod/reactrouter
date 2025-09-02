@@ -1,29 +1,28 @@
-import Header from "./component/header";
-import Footer from "./component/footer";
-import Sidebar from "./component/sidebar";
-// import Postlist from "./component/postlist";
-// import Createpost from "./component/Createpost";
-import {Outlet} from "react-router-dom";
-import Postlistprovider from "./store/postliststore";
-import "./App.css";
+import Header from "../component/component/header.jsx";
+import Footer from "../component/component/footer.jsx";
+import Sidebar from "../component/component/sidebar.jsx";
+import { Outlet } from "react-router-dom";
+import PostlistProvider from "../store/postliststore.jsx"; // ✅ use provider
+import "../routes/App.css";
 import { useState } from "react";
 
 function App() {
   const [selectedtab, setselectedtab] = useState("Home");
+
   return (
-    <Postlistprovider>
+    <PostlistProvider>
       <div className="main">
-        <Sidebar
-          selectedtab={selectedtab}
-          setselectedtab={setselectedtab}
-        ></Sidebar>
+        <Sidebar 
+          selectedtab={selectedtab} 
+          setselectedtab={setselectedtab} 
+        />
         <div className="content">
-          <Header></Header>
-         <Outlet></Outlet>
-          <Footer></Footer>
+          <Header />
+          <Outlet />   {/* ✅ where Postlist or Createpost will be rendered */}
+          <Footer />
         </div>
       </div>
-    </Postlistprovider>
+    </PostlistProvider>
   );
 }
 
