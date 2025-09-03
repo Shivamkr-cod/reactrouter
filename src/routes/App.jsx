@@ -2,7 +2,7 @@ import Header from "../component/component/header.jsx";
 import Footer from "../component/component/footer.jsx";
 import Sidebar from "../component/component/sidebar.jsx";
 import { Outlet } from "react-router-dom";
-import PostlistProvider from "../store/postliststore.jsx"; // ✅ use provider
+import PostlistProvider from "../store/postliststore.jsx"; 
 import "../routes/App.css";
 import { useState } from "react";
 
@@ -18,7 +18,7 @@ function App() {
         />
         <div className="content">
           <Header />
-          <Outlet />   {/* ✅ where Postlist or Createpost will be rendered */}
+          <Outlet />   
           <Footer />
         </div>
       </div>

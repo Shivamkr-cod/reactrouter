@@ -1,5 +1,5 @@
-const Sidebar = ({selectedtab,setselectedtab}) => {
- 
+import { Link } from "react-router-dom";
+const Sidebar = () => {
   return (
     <div
       className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark sidebar"
@@ -11,7 +11,12 @@ const Sidebar = ({selectedtab,setselectedtab}) => {
         className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
       >
         {" "}
-        <svg className="bi pe-none me-2" width="40" height="32" aria-hidden="true">
+        <svg
+          className="bi pe-none me-2"
+          width="40"
+          height="32"
+          aria-hidden="true"
+        >
           <use xlinkHref="#bootstrap"></use>
         </svg>{" "}
         <span className="fs-4">Sidebar</span>{" "}
@@ -19,9 +24,9 @@ const Sidebar = ({selectedtab,setselectedtab}) => {
       <hr />{" "}
       <ul className="nav nav-pills flex-column mb-auto">
         {" "}
-        <li className="nav-item" onClick={() =>{setselectedtab("Home")}}>
+        <li className="nav-item">
           {" "}
-          <a href="#" className={`nav-link text-white ${selectedtab==="Home" && "active"}`} aria-current="page">
+          <Link to="/" className="nav-link text-white " aria-current="page">
             {" "}
             <svg
               className="bi pe-none me-2"
@@ -32,11 +37,11 @@ const Sidebar = ({selectedtab,setselectedtab}) => {
               <use xlinkHref="#home"></use>
             </svg>
             Home
-          </a>{" "}
+          </Link>{" "}
         </li>{" "}
-        <li onClick={() =>{setselectedtab("Create Post")}}>
+        <li>
           {" "}
-          <a href="#" className={`nav-link text-white ${selectedtab==="Create Post" && "active"}`}>
+          <Link to="create-post" className="nav-link text-white">
             {" "}
             <svg
               className="bi pe-none me-2"
@@ -47,9 +52,8 @@ const Sidebar = ({selectedtab,setselectedtab}) => {
               <use xlinkHref="#speedometer2"></use>
             </svg>
             Create Post
-          </a>{" "}
+          </Link>{" "}
         </li>{" "}
-        
       </ul>{" "}
       <hr />{" "}
       <div className="dropdown">
@@ -70,9 +74,8 @@ const Sidebar = ({selectedtab,setselectedtab}) => {
           />{" "}
           <strong>mdo</strong>{" "}
         </a>{" "}
-        
       </div>{" "}
     </div>
   );
 };
-export default Sidebar;
+export default Sidebar; 
